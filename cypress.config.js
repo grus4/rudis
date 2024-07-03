@@ -1,12 +1,6 @@
 const { defineConfig } = require('cypress');
 
 module.exports = defineConfig({
-    e2e: {
-        setupNodeEvents(on, config) {
-            // implement node event listeners here
-        },
-    },
-    baseUrl: 'https://www.rudis.com',
     watchForFileChanges: false,
     defaultCommandTimeout: 20000,
     viewportWidth: 1920,
@@ -15,4 +9,12 @@ module.exports = defineConfig({
     videosFolder: 'cypress/videos',
     trashAssetsBeforeRuns: true,
     chromeWebSecurity: true,
+    e2e: {
+        setupNodeEvents(on, config) {
+            // implement node event listeners here
+        },
+
+        baseUrl:
+            'https://storefront:Ashley2022@staging-na04-ashleystewart.demandware.net/s/AshleyStewart',
+    },
 });
