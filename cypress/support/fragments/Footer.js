@@ -1,8 +1,13 @@
 class Footer {
     allFooterLinks = '#contactsSection a';
+    faceBookLink = '.socials_link:first-child';
 
-    getAllFooterLinks () {
-        cy.get( this.allFooterLinks );
+    getAllFooterLinks() {
+        return cy.get(this.allFooterLinks);
+    }
+
+    getFaceBookLink() {
+        return cy.get(this.faceBookLink);
     }
 }
 
