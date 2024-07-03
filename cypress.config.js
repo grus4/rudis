@@ -1,5 +1,6 @@
 const { defineConfig } = require( 'cypress' );
 
+home-page-tests
 module.exports = defineConfig( {
     e2e: {
         watchForFileChanges: false,
@@ -16,3 +17,4 @@ module.exports = defineConfig( {
         baseUrl: 'https://guest:welcome2qauto@qauto2.forstudy.space',
     },
 } );
+
