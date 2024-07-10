@@ -1,4 +1,4 @@
-class CreateAccountPage {
+export class CreateAccountPage {
     signUpButton = '.hero-descriptor_btn';
     nameField = '#signupName';
     lastNameField = '#signupLastName';
@@ -36,5 +36,5 @@ class CreateAccountPage {
     }
 }
 
-const createAccountPage = new CreateAccountPage();
-export default createAccountPage;
+// const createAccountPage = new CreateAccountPage();
+// export default createAccountPage;

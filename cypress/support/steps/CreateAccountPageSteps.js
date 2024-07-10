@@ -1,23 +1,24 @@
-import createAccountPage from '../pages/CreateAccountPage';
+import pm from '../pages/PageManager';
 import { registrationData } from '../../fixtures/registrationData';
 
 class CreateAccountPageSteps {
     enterUserInfoInfoWithoutRepeatedPassword() {
-        createAccountPage.getSignUpButton().click();
-        createAccountPage.getNameField().type(registrationData.firstName);
-        createAccountPage.getLastNameField().type(registrationData.lastName);
-        createAccountPage.getEmailField().type(registrationData.email);
-        createAccountPage.getPasswordField().type(registrationData.password);
+        pm.createAccountPage.getSignUpButton().click();
+        pm.createAccountPage.getNameField().type(registrationData.firstName);
+        pm.createAccountPage.getNameField().type(registrationData.firstName);
+        pm.createAccountPage.getLastNameField().type(registrationData.lastName);
+        pm.createAccountPage.getEmailField().type(registrationData.email);
+        pm.createAccountPage.getPasswordField().type(registrationData.password);
     }
 
     enterConfirmPassword() {
-        createAccountPage
+        pm.createAccountPage
             .getConfirmPasswordField()
             .type(registrationData.password);
     }
 
     navigateToGaragePage() {
-        createAccountPage.getRegisterButton().click();
+        pm.createAccountPage.getRegisterButton().click();
     }
 }
 

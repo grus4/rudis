@@ -1,14 +1,13 @@
-import createAccountPageSteps from '../../support/steps/CreateAccountPageSteps';
-import garagePageSteps from '../../support/steps/GaragePageSteps';
+import sm from '../../support/steps/StepsManager';
 
 describe('Create Account', () => {
     beforeEach(() => {
         cy.visit('/');
     });
     it('Create Account with valid data', () => {
-        createAccountPageSteps.enterUserInfoInfoWithoutRepeatedPassword();
-        createAccountPageSteps.enterConfirmPassword();
-        createAccountPageSteps.navigateToGaragePage();
-        garagePageSteps.verifyNavigationToGaragePage();
+        sm.createAccountPageSteps.enterUserInfoInfoWithoutRepeatedPassword();
+        sm.createAccountPageSteps.enterConfirmPassword();
+        sm.createAccountPageSteps.navigateToGaragePage();
+        sm.garagePageSteps.verifyNavigationToGaragePage();
     });
 });

@@ -1,3 +1,3 @@
-class GaragePage {
+export class GaragePage {
     
 }
