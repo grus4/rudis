@@ -1,7 +1,6 @@
-const { defineConfig } = require( 'cypress' );
+const { defineConfig } = require('cypress');
 
-home-page-tests
-module.exports = defineConfig( {
+module.exports = defineConfig({
     e2e: {
         watchForFileChanges: false,
         defaultCommandTimeout: 20000,
@@ -11,10 +10,10 @@ module.exports = defineConfig( {
         videosFolder: 'cypress/videos',
         trashAssetsBeforeRuns: true,
         chromeWebSecurity: true,
-        setupNodeEvents ( on, config ) {
+        setupNodeEvents(on, config) {
             // implement node event listeners here
         },
-        baseUrl: 'https://guest:welcome2qauto@qauto2.forstudy.space',
+        baseUrl: 'https://guest:welcome2qauto@qauto.forstudy.space',
     },
-} );
+});
 
