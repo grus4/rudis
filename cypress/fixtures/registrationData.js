@@ -9,6 +9,11 @@ export const registrationData = {
     lastName: 'Danish',
     email: generateRandomEmail(),
     password: 'Qwert_1234!',
+    registeredEmail: 'test1@yopmail.com',
+    enteredDataLessThanMinimumAllowed: 'M',
+    enteredDataMoreThanMaxAllowed: 'MaximusotrMaximusotrw',
+    invalidEmail: 'test1:@@yopmail.com',
+    invalidPassword: '123rtewi'
 };
 
 
