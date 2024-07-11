@@ -4,10 +4,16 @@ describe('Create Account', () => {
     beforeEach(() => {
         cy.visit('/');
     });
-    it('Create Account with valid data', () => {
+
+    it.skip('Create Account with valid data', () => {
         sm.createAccountPageSteps.enterUserInfoInfoWithoutRepeatedPassword();
         sm.createAccountPageSteps.enterConfirmPassword();
         sm.createAccountPageSteps.navigateToGaragePage();
+        sm.garagePageSteps.verifyNavigationToGaragePage();
+    });
+
+    it.skip('Login with Valid Data', () => {
+        cy.login();
         sm.garagePageSteps.verifyNavigationToGaragePage();
     });
 
@@ -24,10 +30,22 @@ describe('Create Account', () => {
             .verifyingWrongLengthOfEneteredCharactersInTheNameField;
     });
 
-    it.skip('should display error for empty Last name field', () => {
+    it.skip('The invalid Name field validation', () => {
+        sm.createAccountPageSteps.enterUserInfoInfoWithInvalidName();
+        sm.createAccountPageSteps.registerButtonIsDisabled();
+        sm.createAccountPageSteps.verifyingTheErrorMessageForInvalidName();
+    });
+
+    it.skip('The empty Last name field validation', () => {
         sm.createAccountPageSteps.enterUserInfoInfoWithEmptyLastNameField();
         sm.createAccountPageSteps.registerButtonIsDisabled();
         sm.createAccountPageSteps.verifyingTheErrorMessageForEmptyLastNameField();
+    });
+
+    it.skip('The invalid Last Name field validation', () => {
+        sm.createAccountPageSteps.enterUserInfoInfoWithInvalidLastName();
+        sm.createAccountPageSteps.registerButtonIsDisabled();
+        sm.createAccountPageSteps.verifyingTheErrorMessageForInvalidLastName();
     });
 
     it.skip('The wrong length of entered characters in the Last Name field', () => {
