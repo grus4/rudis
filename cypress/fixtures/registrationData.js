@@ -6,7 +6,9 @@ export function generateRandomEmail(prefix = 'test') {
 
 export const registrationData = {
     firstName: 'Max',
+    invalidFirstName: 'Максим',
     lastName: 'Danish',
+    invalidLastName: 'Даніш',
     email: generateRandomEmail(),
     password: 'Qwert_1234!',
     differentPassword: 'Qwert_12340!!!',
