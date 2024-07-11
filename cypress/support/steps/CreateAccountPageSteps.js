@@ -4,34 +4,54 @@ import { registrationData } from '../../fixtures/registrationData';
 class CreateAccountPageSteps {
     enterUserInfoInfoWithoutRepeatedPassword() {
         pm.createAccountPage.getSignUpButton().click();
-        pm.createAccountPage.getNameField().type(registrationData.firstName);
-        pm.createAccountPage.getLastNameField().type(registrationData.lastName);
+        pm.createAccountPage
+            .getNameField()
+            .type(registrationData.firstName.trim());
+        pm.createAccountPage
+            .getLastNameField()
+            .type(registrationData.lastName.trim());
         pm.createAccountPage.getEmailField().type(registrationData.email);
-        pm.createAccountPage.getPasswordField().type(registrationData.password);
+        pm.createAccountPage
+            .getPasswordField()
+            .type(registrationData.password, { sensitive: true });
     }
 
     enterUserInfoInfoWithEmptyNameField() {
         pm.createAccountPage.getSignUpButton().click();
         pm.createAccountPage.getNameField().clear();
-        pm.createAccountPage.getLastNameField().type(registrationData.lastName);
+        pm.createAccountPage
+            .getLastNameField()
+            .type(registrationData.lastName.trim());
         pm.createAccountPage.getEmailField().type(registrationData.email);
-        pm.createAccountPage.getPasswordField().type(registrationData.password);
+        pm.createAccountPage
+            .getPasswordField()
+            .type(registrationData.password, { sensitive: true });
     }
 
     enterUserInfoInfoWithEmptyLastNameField() {
         pm.createAccountPage.getSignUpButton().click();
-        pm.createAccountPage.getNameField().type(registrationData.firstName);
+        pm.createAccountPage
+            .getNameField()
+            .type(registrationData.firstName.trim());
         pm.createAccountPage.getLastNameField().clear();
         pm.createAccountPage.getEmailField().type(registrationData.email);
-        pm.createAccountPage.getPasswordField().type(registrationData.password);
+        pm.createAccountPage
+            .getPasswordField()
+            .type(registrationData.password, { sensitive: true });
     }
 
     enterUserInfoInfoWithEmptyEmailField() {
         pm.createAccountPage.getSignUpButton().click();
-        pm.createAccountPage.getNameField().type(registrationData.firstName);
-        pm.createAccountPage.getLastNameField().type(registrationData.lastName);
+        pm.createAccountPage
+            .getNameField()
+            .type(registrationData.firstName.trim());
+        pm.createAccountPage
+            .getLastNameField()
+            .type(registrationData.lastName.trim());
         pm.createAccountPage.getEmailField().clear();
-        pm.createAccountPage.getPasswordField().type(registrationData.password);
+        pm.createAccountPage
+            .getPasswordField()
+            .type(registrationData.password, { sensitive: true });
     }
 
     verifyingTheErrorMessageForEmptyNameField() {
@@ -77,11 +97,26 @@ class CreateAccountPageSteps {
             'Password has to be from 8 to 15 characters long and contain at least one integer, one capital, and one small letter'
         ).should('be.visible');
     }
-    
-    enterUserInfoWithInvalidPassword() {
-        pm.createAccountPage.getPasswordField().type(registrationData.invalidPassword);
+
+    verifyingTheErrorMessageForEmptyConfirmPasswordField() {
+        pm.createAccountPage
+            .getConfirmPasswordField()
+            .should('have.css', 'border-color', 'rgb(220, 53, 69)');
+        cy.contains('Re-enter password required').should('be.visible');
     }
-    
+
+    verifyErrorForMismatchingPassword() {
+        pm.createAccountPage
+            .getConfirmPasswordField()
+            .should('have.css', 'border-color', 'rgb(220, 53, 69)');
+        cy.contains('Passwords do not match').should('be.visible');
+    }
+
+    enterUserInfoWithInvalidPassword() {
+        pm.createAccountPage
+            .getPasswordField()
+            .type(registrationData.invalidPassword);
+    }
 
     enterLessThanMinCharactersInTheNameField() {
         pm.createAccountPage.getSignUpButton().click();
@@ -90,7 +125,9 @@ class CreateAccountPageSteps {
             .type(registrationData.enteredDataLessThanMinimumAllowed);
         pm.createAccountPage.getLastNameField().type(registrationData.lastName);
         pm.createAccountPage.getEmailField().type(registrationData.email);
-        pm.createAccountPage.getPasswordField().type(registrationData.password);
+        pm.createAccountPage
+            .getPasswordField()
+            .type(registrationData.password, { sensitive: true });
     }
 
     enterMoreThanMaxNumberOfCharactersInTheLastNameField() {
@@ -102,39 +139,70 @@ class CreateAccountPageSteps {
             .getLastNameField()
             .type(registrationData.enteredDataMoreThanMaxAllowed);
         pm.createAccountPage.getEmailField().type(registrationData.email);
-        pm.createAccountPage.getPasswordField().type(registrationData.password);
+        pm.createAccountPage
+            .getPasswordField()
+            .type(registrationData.password, { sensitive: true });
     }
 
     enterUserInfoInfoWithInvalidEmail() {
         pm.createAccountPage.getSignUpButton().click();
-        pm.createAccountPage.getNameField().type(registrationData.firstName);
-        pm.createAccountPage.getLastNameField().type(registrationData.lastName);
+        pm.createAccountPage
+            .getNameField()
+            .type(registrationData.firstName.trim());
+        pm.createAccountPage
+            .getLastNameField()
+            .type(registrationData.lastName.trim());
         pm.createAccountPage
             .getEmailField()
             .type(registrationData.invalidEmail);
-        pm.createAccountPage.getPasswordField().type(registrationData.password);
+        pm.createAccountPage
+            .getPasswordField()
+            .type(registrationData.password, { sensitive: true });
     }
 
     enterUserInfoInfoWithInvalidPassword() {
         pm.createAccountPage.getSignUpButton().click();
-        pm.createAccountPage.getNameField().type(registrationData.firstName);
-        pm.createAccountPage.getLastNameField().type(registrationData.lastName);
         pm.createAccountPage
-            .getEmailField()
-            .type(registrationData.email);
-        pm.createAccountPage.getPasswordField().type(registrationData.invalidPassword);
+            .getNameField()
+            .type(registrationData.firstName.trim());
+        pm.createAccountPage
+            .getLastNameField()
+            .type(registrationData.lastName.trim());
+        pm.createAccountPage.getEmailField().type(registrationData.email);
+        pm.createAccountPage
+            .getPasswordField()
+            .type(registrationData.invalidPassword);
         pm.createAccountPage.getConfirmPasswordField().focus().blur();
     }
 
     enterUserInfoInfoWithEmptyPasswordField() {
         pm.createAccountPage.getSignUpButton().click();
-        pm.createAccountPage.getNameField().type(registrationData.firstName);
-        pm.createAccountPage.getLastNameField().type(registrationData.lastName);
+        pm.createAccountPage
+            .getNameField()
+            .type(registrationData.firstName.trim());
+        pm.createAccountPage
+            .getLastNameField()
+            .type(registrationData.lastName.trim());
         pm.createAccountPage.getEmailField().type(registrationData.email);
         pm.createAccountPage.getPasswordField().focus().blur();
         pm.createAccountPage
             .getConfirmPasswordField()
-            .type(registrationData.password);
+            .type(registrationData.password, { sensitive: true });
+    }
+
+    enterUserInfoInfoWithEmptyConfirmPasswordField() {
+        pm.createAccountPage.getSignUpButton().click();
+        pm.createAccountPage
+            .getNameField()
+            .type(registrationData.firstName.trim());
+        pm.createAccountPage
+            .getLastNameField()
+            .type(registrationData.lastName.trim());
+        pm.createAccountPage.getEmailField().type(registrationData.email);
+        pm.createAccountPage
+            .getPasswordField()
+            .type(registrationData.password, { sensitive: true });
+        pm.createAccountPage.getConfirmPasswordField().focus().blur();
     }
 
     verifyingWrongLengthOfEneteredCharactersInTheNameField() {
@@ -159,10 +227,26 @@ class CreateAccountPageSteps {
         pm.createAccountPage.getRegisterButton().should('be.disabled');
     }
 
+    registerButtonIsEnabled() {
+        pm.createAccountPage.getRegisterButton().should('be.enabled');
+    }
+
     enterConfirmPassword() {
         pm.createAccountPage
             .getConfirmPasswordField()
-            .type(registrationData.password);
+            .type(registrationData.password, { sensitive: true });
+    }
+
+    enterDifferentConfirmPassword() {
+        pm.createAccountPage
+            .getConfirmPasswordField()
+            .type(registrationData.differentPassword, { sensitive: true })
+            .focus()
+            .blur();
+    }
+
+    submitCreateAccountForm() {
+        pm.createAccountPage.getRegisterButton().click();
     }
 
     navigateToGaragePage() {
