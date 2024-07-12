@@ -14,8 +14,10 @@ module.exports = defineConfig( {
             // implement node event listeners here
         },
         baseUrl: 'https://guest:welcome2qauto@qauto.forstudy.space',
-
+        env: {
+            email: 'test10@yopmail.com',
+            password: 'Qwert_1234',
+          },
     },
 } );
-
 

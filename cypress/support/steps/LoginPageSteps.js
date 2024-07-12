@@ -5,10 +5,10 @@ class LoginPageSteps {
     loginToAccount() {
         pm.loginPage
             .getloginEmailField()
-            .type(registrationData.registeredEmail.trim());
+            .type(Cypress.env('email').trim());
         pm.loginPage
             .getLoginPasswordField()
-            .type(registrationData.password.trim());
+            .type(Cypress.env('password').trim());
         pm.loginPage.getloginButton().click();
     }
 }
