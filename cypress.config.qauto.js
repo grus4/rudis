@@ -1,6 +1,6 @@
-const { defineConfig } = require( 'cypress' );
+const { defineConfig } = require('cypress');
 
-module.exports = defineConfig( {
+module.exports = defineConfig({
     e2e: {
         watchForFileChanges: false,
         defaultCommandTimeout: 20000,
@@ -10,14 +10,23 @@ module.exports = defineConfig( {
         videosFolder: 'cypress/videos',
         trashAssetsBeforeRuns: true,
         chromeWebSecurity: true,
-        setupNodeEvents ( on, config ) {
-            // implement node event listeners here
+        setupNodeEvents(on, config) {},
+        reporter: 'mochawesome',
+        reporterOptions: {
+            charts: true,
+            reportFilename: 'my-report',
+            embeddedScreenshots: true,
+            inlineAssets: true,
+            saveAllAttempts: false,
+            reportDir: 'reports/your-reports-folder',
+            html: true,
         },
+
         baseUrl: 'https://guest:welcome2qauto@qauto.forstudy.space',
         env: {
             email: 'test10@yopmail.com',
             password: 'Qwert_1234',
-          },
+        },
     },
-} );
+});
 

@@ -19,11 +19,10 @@ export const registrationData = {
     invalidPassword: '123rtewi',
     brand: 'BMW',
     model: 'X5',
-    mileage1: 20000,
-    mileage2: 50000
-
-
-
+    mileage1: 40000,
+    mileage2: 50000,
+    numberOfLitres: 80,
+    totalCost: 300
 };
 
 
