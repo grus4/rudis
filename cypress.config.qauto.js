@@ -11,20 +11,13 @@ module.exports = defineConfig( {
         trashAssetsBeforeRuns: true,
         chromeWebSecurity: true,
         setupNodeEvents ( on, config ) {
+            // implement node event listeners here
         },
-        reporter: 'cypress-mochawesome-reporter',
-        reporterOptions: {
-            charts: true,
-            reportPageTitle: 'custom-title',
-            embeddedScreenshots: true,
-            inlineAssets: true,
-            saveAllAttempts: false,
-            reportDir: 'cypress/reports/',
-            html: true,
-            json: true
-        },
-
+        baseUrl: 'https://guest:welcome2qauto@qauto.forstudy.space',
+        env: {
+            email: 'test10@yopmail.com',
+            password: 'Qwert_1234',
+          },
     },
 } );
-
 

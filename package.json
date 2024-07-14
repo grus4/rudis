@@ -5,12 +5,18 @@
     "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "cy:open": "cypress open"
+        "cy:open": "cypress open",
+        "cy:open:auto": "cypress open --config-file cypress.config.qauto.js",
+        "cy:open:auto2": "cypress open --config-file cypress.config.qauto2.js",
+        "cy:open:reporter: config1":"cypress open ----config-file cypress.config.qauto.js --reporter mochawesome",
+        "cy:open:reporter2: config2":"cypress open --config-file cypress.config.qauto2.js",
+        "pretest": "clean:reports"
     },
     "author": "Gaiduchok Ruslan",
     "license": "ISC",
     "devDependencies": {
         "cypress": "^13.13.0",
+        "cypress-mochawesome-reporter": "^3.8.2",
         "prettier": "3.3.2"
     }
 }
