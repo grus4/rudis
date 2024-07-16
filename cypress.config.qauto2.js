@@ -1,5 +1,6 @@
 const { defineConfig } = require('cypress');
 
+
 module.exports = defineConfig({
     e2e: {
         watchForFileChanges: false,
@@ -22,12 +23,10 @@ module.exports = defineConfig({
             html: true,
         },
 
-        baseUrl: 'https://guest:welcome2qauto@qauto.forstudy.space',
+        baseUrl: 'https://guest:welcome2qauto@qauto2.forstudy.space',
         env: {
-            email: 'test10@yopmail.com',
+            email: 'test20@yopmail.com',
             password: 'Qwert_1234',
         },
     },
 });
-
-

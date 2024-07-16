@@ -36,5 +36,3 @@ export class CreateAccountPage {
     }
 }
 
-// const createAccountPage = new CreateAccountPage();
-// export default createAccountPage;
