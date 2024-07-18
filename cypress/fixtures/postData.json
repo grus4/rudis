@@ -1,0 +1,12 @@
+{
+    "newPost": {
+        "title": "Welcome to the board",
+        "body": "Some text",
+        "userId": 100
+    },
+    "updatePost": {
+        "title": "updated title",
+        "body": "updated body",
+        "userId": 1
+    }
+}

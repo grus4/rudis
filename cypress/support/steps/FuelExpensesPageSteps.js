@@ -6,18 +6,13 @@ class FuelExpensesPageSteps {
         cy.url(regex);
     }
 
-    addingAnExpenseToTheCar() {
+    addingAnExpenseToTheCar(mileage2, numberOfLitres, totalCost) {
         pm.fuelExpensesPage.getAddExpenseButton().click();
-        pm.fuelExpensesPage
-            .getExpenseMileageField()
-            .clear()
-            .type(registrationData.mileage2);
-        pm.fuelExpensesPage
-            .getNumberOfLitresField()
-            .type(registrationData.numberOfLitres);
+        pm.fuelExpensesPage.getExpenseMileageField().clear().type(mileage2);
+        pm.fuelExpensesPage.getNumberOfLitresField().type(numberOfLitres);
         pm.fuelExpensesPage
             .getTotalCostField()
-            .type(registrationData.totalCost);
+            .type(totalCost);
         pm.fuelExpensesPage.getAddButton().click();
     }
 
@@ -26,7 +21,8 @@ class FuelExpensesPageSteps {
             .getLitersUsedValue()
             .should('contain.text', `${registrationData.numberOfLitres}L`);
         pm.fuelExpensesPage
-            .getTotalCostValue().should('contain.text', `${registrationData.totalCost}`);
+            .getTotalCostValue()
+            .should('contain.text', `${registrationData.totalCost}`);
     }
 }
 

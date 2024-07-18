@@ -7,12 +7,19 @@ class GaragePageSteps {
         cy.url(regex);
     }
 
-    addCarToGaragePage() {
+    addCarToGaragePage(brand, model, mileage1) {
+        cy.intercept('POST', 'api/cars/', req => {
+            expect(req.body.carBrandId).to.eq(carData.carBrandId);
+            expect(req.body.carModelId).to.eq(carData.carModelId);
+            expect(req.body.mileage).to.eq(carData.mileage);
+        }).as('addCarRequest');
+
         pm.garagePage.getAddCarButton().click();
-        pm.garagePage.getBrandDropDownField().select(registrationData.brand);
-        pm.garagePage.getModelDropDownField().select(registrationData.model);
-        pm.garagePage.getMileageField().type(registrationData.mileage1);
+        pm.garagePage.getBrandDropDownField().select(brand);
+        pm.garagePage.getModelDropDownField().select(model);
+        pm.garagePage.getMileageField().type(mileage1);
         pm.garagePage.getAddButton().click();
+
     }
 
     verifyCarInTheGarage() {
